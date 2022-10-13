@@ -1,8 +1,13 @@
 ### your site title here
 
+
+# Things to figure out
+# 1. How to move around the ordering of home, projects, blog, and archive
+# 2. How to remove blog and archive,
+# 3. How to change Projects
+
 title: Jimmy Franknedy
 description: Graduate Student at the University of California Santa Cruz
-
 
 baseurl: #name of GitHub repository
 url: https://jimmy-franknedy.github.io #custom url to be used instead of GitHub repository
@@ -50,6 +55,7 @@ collections:
     permalink: /projects/:name/
     order:
       - project1.md
+      - project2.md
 
 sass:
   sass_dir: /assets/css/_sass
