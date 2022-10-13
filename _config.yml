@@ -6,7 +6,7 @@ description: Graduate Student at the University of California Santa Cruz
 
 baseurl: #name of GitHub repository
 url: https://jimmy-franknedy.github.io #custom url to be used instead of GitHub repository
-email: #
+# email:
 
 # Pagination
 paginate: 4
@@ -14,15 +14,15 @@ permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 # Social media links in footer
-twitter: "#"
-linkedin: "#"
-stackoverflow: "#"
-github: "#"
-researchgate: "#"
-orcid: "#"
-quora: "#"
-instagram: "#"
-facebook: "#"
+# twitter: "#"
+linkedin: jimmy-franknedy
+# stackoverflow: "#"
+github: jimmy-franknedy
+# researchgate: "#"
+# orcid: "#"
+# quora: "#"
+# instagram: "#"
+# facebook: "#"
 
 
 # Markdown
@@ -49,12 +49,7 @@ collections:
     output: true
     permalink: /projects/:name/
     order:
-      - shortProject.md
-      - longerProjectTitle.md
-      - redirect.md
-      - project4.md
-      - project5.md
-      - project6.md
+      - project1.md
 
 sass:
   sass_dir: /assets/css/_sass

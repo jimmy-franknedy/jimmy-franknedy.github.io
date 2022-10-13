@@ -3,19 +3,21 @@ layout: about
 permalink: /
 profile:
   align: right
-  image: profile.png
+  image: Profile.jpg
 published: true
 ---
 
-[Gradfolio](https://github.com/jitinnair1/gradfolio){:target="_blank"} is a responsive, dark-mode ready Jekyll theme designed keeping academia in mind. The easiest way to install the theme is to fork it using GitHub. Check the README file for [instructions](https://github.com/jitinnair1/gradfolio#installation){:target="_blank"}.
+### Background
+As a first-generation college student, I studied Computer Engineering at the University of California Santa Cruz. Throughout my undergraduate career, my engagement in computer networks, computer systems, and programming courses allowed me to build a strong foundation of network architectures and protocols, system design principles, and C & C++.
 
-If you want to use this space to write your biography here, edit the `index.md` file. You can put a picture in, too. Rename your picture to `profile.png` and put it in the `assets/images/` folder.
+### Professional & Academic Role
+During my time as an undergraduate, I worked as a BSOE lab tutor for [CS12/L](https://courses.soe.ucsc.edu/courses/cse12){:target="_blank"}. Currently, I am looking for an apprenticeship or an internship in the areas of Information Technology, Security, and Software Engineering to learn more about how concepts of computer networks, systems, and programming are applied to real-world applications.
 
-The social-icons footer can be used to link profiles from GitHub, OrcID and ReasearchGate aprart form the usual Twitter, LinkedIn and Facebook. You can add your user ID in the `_config.yml` file to link your accounts.
+### Research Interests
+Moving forward with my graduate career, I aim to pursue research that incorporates topics of Security in Computer Networks and Systems to learn more about upcoming developments and to aid me in building solutions to security challenges.
 
-PS: If you liked the theme, do star it on GitHub!
+### Hobbies & Interests
+Outside of the computer screen, I enjoy road biking, traveling to new places, trying new foods, and cooking with friends!
 
-### Also, check out:
-
-- [autoCV](https://github.com/jitinnair1/autocv) - a LaTeX template that builds and deploys the CV using GitHub Actions, so you will always have a ready link for your latest CV
-- [Tail](https://github.com/jitinnair1/tail) - a minimal, quick-setup template for a blog
+### Contact Information
+For further connections, please refer to the icons below where you can find my LinkedIn and GitHub profile!
