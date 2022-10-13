@@ -1,10 +1,11 @@
 ### your site title here
 
-title: Your Name
-description: subtitle | affiliations | motto
+title: Jimmy Franknedy
+description: Graduate Student at the University of California Santa Cruz
 
-baseurl: /gradfolio #name of GitHub repository
-url: "" #custom url to be used instead of GitHub repository
+
+baseurl: #name of GitHub repository
+url: https://jimmy-franknedy.github.io #custom url to be used instead of GitHub repository
 email: #
 
 # Pagination
