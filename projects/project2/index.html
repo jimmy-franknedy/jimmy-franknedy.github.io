@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link rel="stylesheet" href="/assets/css/main.css">
+
+        <h1 class="post-headline">Jimmy Franknedy</h1>
+        <h3 class="post-description">Graduate Student at the University of California Santa Cruz</h3>
+
+        <div class="links scroll">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        <a href="/blog/">Blog</a>
+        <a href="/archive/">Archive</a>
+</div>
+
+
+        <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Roman Numeral Conversion in MIPs | Jimmy Franknedy</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Roman Numeral Conversion in MIPs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A program that converts Roman Numeral string inputs to Decimal &amp; Binary Values!" />
+<meta property="og:description" content="A program that converts Roman Numeral string inputs to Decimal &amp; Binary Values!" />
+<link rel="canonical" href="https://jimmy-franknedy.github.io/projects/project2/" />
+<meta property="og:url" content="https://jimmy-franknedy.github.io/projects/project2/" />
+<meta property="og:site_name" content="Jimmy Franknedy" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-10-22T02:09:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Roman Numeral Conversion in MIPs" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-10-22T02:09:18+00:00","datePublished":"2022-10-22T02:09:18+00:00","description":"A program that converts Roman Numeral string inputs to Decimal &amp; Binary Values!","headline":"Roman Numeral Conversion in MIPs","mainEntityOfPage":{"@type":"WebPage","@id":"https://jimmy-franknedy.github.io/projects/project2/"},"url":"https://jimmy-franknedy.github.io/projects/project2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+        <!-- Generated using https://favicon.io/ -->
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?">
+<link rel="manifest" href=site.webmanifest">
+
+
+        <!-- MathJax -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+     processEscapes: true
+    }
+  });
+</script>
+
+
+        <!-- Load fontawesome here for faster loadtimes: https://stackoverflow.com/a/35880730/9523246 -->
+        <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.11.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+    </head>
+
+    <body>
+        <main>
+            <article>
+                <h1 class="post-headline">Roman Numeral Conversion in MIPs</h1>
+<p class="meta"><small>October 22, 2022</small></p>
+
+<h1 id="objective">Objective</h1>
+
+<p>In this project, I developed a stronger understanding of how data is represented, stored, and manipulated at the processor level by creating a MIPS program that takes Roman Numerals as a form of string input, converts the values into binary and decimal, and prints the output as ASCII characters.</p>
+
+<h1 id="implementation">Implementation</h1>
+
+<p>The implementation process was divided into two steps. In the first step, I design what the program’s functionality would look like and provide pseudocode to aid in visualizing how it would process user input. In the second step, I developed the code.</p>
+
+<h3 id="design">Design</h3>
+
+<p>When thinking about edge-cases for this program, I considered the following:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a.	M is an invalid character
+b.	No more than 3 consecutive identical Roman Numerals
+c.	Only 1 'I' 'X' 'C' can be used as the leading numeral in part of 
+	a subtraction pair. [Not needed as already implemented by d,e,f]
+d.	'I' can only be placed before V and X [ or 0x0000]
+e.	'X' can only be placed before L and C [ or 0x0000]
+f.	'C' can only be placed before D	      [ or 0x0000]
+g.	'D' 'L' 'V' can only appear once
+</code></pre></div></div>
+
+<p>To plan for my program, I developed some partial pseudocode that would allow me to gain a better understanding of how my program would flow and handle not only the aforementioned error and edge cases, but also how it would progress with long computations. The pseudocode follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; Program prompts the user for a Roman Numeral Input
+
+&gt; Program accesses the user's input
+
+&gt; Program checks for possible errors [A, B, C, D, E, F, G] within the user's input	
+
+	&gt; Program encounters an error
+		- Program will display an error message
+		- Program will return to the main prompt
+	
+	&gt; Program encoutners no error
+		1. Program takes the length of the Roman Numeral and stores in a reg (r)
+		
+		2. Program decodes the Roman Numerals (represented as Hex characters)
+		   to decimal
+			
+			&gt;&gt; Loop
+			a. Program takes with the first Roman Numeral (i) 
+			b. Program converts (i) to a decimal representation		
+			c. Program adds (i) to the total running sum (s)
+			d. Program increments (i++)
+			e. Program compares (i) to (i++)
+				e.1: if (i) &gt; (i++), then Program does (s) - (i++)
+				e.2: if (i) &lt; (i++), then Program does (s) + (i++)
+			f. Program increments (i++)
+			g. Program decrements (r--)
+			h. Program compares length
+				h.1 if (r) is = 0, Program exits
+				h.2 if (r) is != 0, Program loops back to a.
+		
+		3. Program decodes the decimal representation to binary
+			
+			&gt;&gt; Loop
+			* Program starts with a reg hold a 2 power (2P) *
+			a. Program takes (s)
+			b. Program takes (s) &amp; (2P)
+				c.1 If (s) - (2P) then...
+					c.1.i 	'1' is inputted into a binary register (b)
+					c.1.ii 	(2P) gets divided by 2
+					c.1.iii	(b) gets shifted to the left by 4B
+				c.2 if (s) !- (2p) then..
+					c.1.i 	'0' is inputted into a binary register (b)
+					c.1.ii 	(2P) gets divided by 2
+					c.1.iii	(b) gets shifted to the left by 4B
+			d. Program checks to see if (s) is 0
+				d.1 If (s) = 0, then program exits
+				d.2 If (s) != 0, then program jumps back to a.
+		
+		4. Program outputs the base 2 representation of the Roman Numeral
+			
+			&gt;&gt; Loop
+			* Program gets the length of (l) *
+			a. Program goes to (b)
+			b. Program goes to the first value of (b) called (k)
+			c. Program prints (k)
+			d. Program increments(k++)
+			e. Program decrements (l--)
+				f.1 If (l) = 0, Program terminates
+				f.2 If (l) != 0, Program jumps to a.
+		
+		5. Program Exits
+			li	$v0 10
+			syscall
+</code></pre></div></div>
+
+<h3 id="develop">Develop</h3>
+
+<p>The final program code is posted on my GitHub and can be found <a href="https://github.com/jimmy-franknedy/Website_Code/blob/main/Roman%20Numeral%20Conversion%20in%20MIPs/Lab4.asm" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
+<h1 id="evaluation">Evaluation</h1>
+
+<p>When testing the program for bugs, I considered the following:</p>
+
+<ol>
+  <li>Invalid Roman Numeral Inputs</li>
+  <li>Short &amp; Long Roman Numeral Inputs</li>
+  <li>Addition &amp; Subtraction Roman Numeral Computations</li>
+</ol>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Through the course of this program, not only was I developing my MIPS programming skillset and gaining a deeper understanding of how data was stored and manipulated at the processor level, but I was also learning how to create functions that would allow my program to run more efficiently (recalling the notion of divide-and-conquer).</p>
+
+
+<!-- Comments only for posts -->
+
+
+            </article>
+        </main>
+
+        <footer>
+          <p class="copy">
+            <small> © Jimmy Franknedy 2022
+                    | Powered by Jekyll and
+                    <a target="_blank" href="https://github.com/jitinnair1/gradfolio/" rel="noopener noreferrer">Gradfolio</a>.
+                    Last updated on 22 October 2022
+            </small>
+          </p>
+
+        <div class="rounded-social-buttons">
+<a title="" class="social-button linkedin" href="https://www.linkedin.com/in/jimmy-franknedy" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-linkedin"></i>
+</a><a title="" class="social-button github" href="https://www.github.com/jimmy-franknedy" itemprop="sameAs" target="_blank" rel="noopener noreferrer">
+<i class="fab fa-github"></i>
+</a>
+</div>
+
+
+        </footer>
+
+        <!-- Google Analytics Tracking code -->
+<script src="https://cdn.jsdelivr.net/npm/ga-lite@1/dist/ga-lite.min.js" async></script>
+<script>
+var galite = galite || {};
+galite.UA = '';
+</script>
+
+    </body>
+
+</html>
