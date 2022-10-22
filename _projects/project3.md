@@ -21,7 +21,8 @@ test
 
 Develop
 ------------
-test
+The final state machine code is posted on my GitHub and can be found [here](https://github.com/jimmy-franknedy/Website_Code/blob/main/Toaster%20Oven%20State%20Machine%20in%20C/Lab07_main.c){:target="_blank"}.
+
 
 Evaluation
 ============
